@@ -34,20 +34,10 @@ app.get('/', function (req, res) {
     //res.sendStatus(404);
     res.status(401).send('Test bed environment for Vanderlei\'s kukaloca. A playground for learning and having fun with new tech (and at times, be reminded that I am getting older and a bit slower)...');
 });
-// make '/kukaloca' default route
-app.get('/kukaloca', function (req, res) {
-    return res.redirect('/kukaloca/app');
-});
-// make '/kuka' default route
-app.get('/kuka', function (req, res) {
-    return res.redirect('/kukaloca/app');
-});
-// make '/nodejs' default route
-app.get('/nodejs', function (req, res) {
-    return res.redirect('/kukaloca/app');
-});
-// make '/nodejs' default route
-app.get('/testapp', function (req, res) {
+
+// make diff aliases the default route
+//app.get(['/kuka', '/kukaloca', /\/lmn|\/pqr/], function (req, res) {
+app.get(['/kuka', '/kukaloca', '/nodejs', '/testapp'], function (req, res) {
     return res.redirect('/kukaloca/app');
 });
 
