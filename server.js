@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
 
 // make diff aliases the default route
 //app.get(['/kuka', '/kukaloca', /\/lmn|\/pqr/], function (req, res) {
-app.get(['/kuka', '/kukaloca', '/nodejs', '/testapp'], function (req, res) {
+app.get(['/kuka', '/kukaloca', '/nodejs', '/testapp', '/ec2', '/aws'], function (req, res) {
     return res.redirect('/kukaloca/app');
 });
 
