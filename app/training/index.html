@@ -1,0 +1,94 @@
+<div ng-if="!vm.trainingID">
+    <h1 id="pageTitle">Add new Training Set</h1>
+</div>
+<div ng-if="vm.trainingID">
+    <h1 id="pageTitle">Update Training Set definition</h1>
+</div>
+
+
+
+<div class="form-container">
+<form name="trainingForm" ng-submit="trainingForm.$valid && vm.saveTraining()">
+    <div class="form-group">
+        <label>Title</label>		
+        <input name="title" class="form-control" ng-model="vm.training.title"  ng-minlength="2" ng-maxlength="80" required />
+            <span style="color:black"  ng-show="trainingForm.title.$error.required" class="help-inline">Required</span>
+            <span style="color:orange" ng-show="trainingForm.title.$error.minlength" class="help-inline">Minimum 2 characters</span> 
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea name="description" class="form-control" ng-model="vm.training.description" ng-minlength="2"  required></textarea>
+            <span style="color:black"  ng-show="trainingForm.description.$error.required" class="help-inline">Required</span>
+            <span style="color:orange" ng-show="trainingForm.description.$error.minlength" class="help-inline">Minimum 2 characters</span> 
+    </div>
+
+    <div class="form-group" >
+        <label>Algorithm Type </label> <br/>
+        <select name="algorithmType" ng-model="vm.training.algorithmType" ng-init="vm.training.algorithmType='RNN'"  required>
+            <option value="RNN" selected>Recurrent Neural Net
+            <option value="CONVNET">Convolutional Net
+        </select><br/>
+            <span style="color:black"  ng-show="trainingForm.algorithmType.$error.required" class="help-inline">Required</span>
+    </div>
+
+    <div class="form-group">
+        <label>Number Of Layers</label>
+        <input name="numberOfLayers" class="form-control" ng-model="vm.training.numberOfLayers"  required ng-maxlength="3"  pattern="[0-9]{1,2}" />
+            <span style="color:black"  ng-show="trainingForm.numberOfLayers.$error.required" class="help-inline">Required</span>
+        
+    </div>
+
+    <div class="form-group">
+        <label>Activation Function</label><br/>
+        <select name="activationFunction" ng-model="vm.training.activationFunction" ng-init="vm.training.activationFunction='TAN'"  required  >
+            <option value="SIG" >Sigmoid
+            <option value="TAN">Tangent
+            <option value="SOF">Softmax
+            <option value="LIN">Linear
+        </select><br/>
+            <span style="color:black"  ng-show="trainingForm.activationFunction.$error.required" class="help-inline">Required</span>
+
+    </div>
+
+    <div class="form-group">
+        <label>Number of Input Neurons</label>
+        <input name="inputNeurons" class="form-control" ng-model="vm.training.inputNeurons" required ng-maxlength="3" pattern="[0-9]{1,2}" />
+            <span style="color:black"  ng-show="trainingForm.inputNeurons.$error.required" class="help-inline">Required</span>
+        
+    </div>
+
+    <div class="form-group">
+        <label>Number of Output Neurons</label>
+        <input name="outputNeurons" class="form-control" ng-model="vm.training.outputNeurons" required ng-maxlength="3" pattern="[0-9]{1,2}" />
+            <span style="color:black"  ng-show="trainingForm.outputNeurons.$error.required" class="help-inline">Required</span>
+    </div>
+
+    <div class="form-group">
+        <label>Example Data Set (.csv / json)</label>
+        <textarea class="form-control" ng-model="vm.training.dataSet"> </textarea>
+        Note: hard-coded 70% of data used for Training, 15% for Validation, and 15% for Testing.
+    </div>
+    
+    <br/>
+
+    <!--<input type="submit" class="btn btn-primary" value="Save" ng-click="vm.saveTraining()" />-->
+    <div ng-if="!vm.trainingID">
+        <input type="submit" class="btn btn-primary" value="Save" />
+        <a class="btn btn-default" href="#/">Go Back / Cancel</a>
+    </div>
+    <div ng-if="vm.trainingID">
+        <input type="submit" class="btn btn-primary" value="Update" />
+        <a class="btn btn-default" href="#/">Go Back / Cancel</a>
+    </div>
+    
+</form>
+</div>
+
+<!--<input type="hidden" name="training_id" ng-value="vm.training._id" />-->
+<!--
+<script>
+    document.getElementById("trainingForm").ngSubmit = "trainingForm.$valid && vm.updateTraining(vm.trainingID)";
+</script>
+-->
+
+

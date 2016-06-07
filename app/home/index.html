@@ -1,0 +1,58 @@
+<h1>Kuka Toolbox Training Sets</h1><p> User: {{vm.user.firstName}}.</p>
+<br/><br/>
+
+            
+<table>
+    <tr>
+        <td> Training Name </td>
+        <td> Algo Type </td>
+        <td> Delete </td>
+        <td> Training Dashboard </td>
+        <td> Execute </td>
+    </tr>
+    <tr ng-repeat="training in vm.userTrainings">
+    <td>
+        <a href="#/training/{{training._id}}"   data-toggle = "tooltip" data-placement = "top"  title = "View/Edit Training Set" >
+            {{training.title}}
+        </a>
+    </td>
+    <td>{{ training.algorithmType }}</td>
+
+    <td align="center">
+        <a href=""  ng-click="vm.deleteTraining(training._id);" ng-confirm-click="Confirm Deleting Training Set?" data-toggle = "tooltip" data-placement = "top"  title = "Delete Training">
+            <i class="glyphicon glyphicon-trash" ></i>
+        </a>           
+    </td>
+    <td align="center">
+                <div ng-switch on="training.isTrained">
+                <div ng-switch-when="true">
+                    <a href="#/training/trainNetwork/{{training._id}}" data-toggle = "tooltip" data-placement = "top"  title = "Re-train Network">
+                        <i class="glyphicon glyphicon-repeat" ></i>
+                    </a>
+                </div> 
+                <div ng-switch-default>
+                    <a href="#/training/trainNetwork/{{training._id}}" data-toggle = "tooltip" data-placement = "top"  title = "Train Network">
+                        <i class="glyphicon glyphicon-cog" ></i>
+                    </a>
+                </div>
+                </div>
+    </td>
+    <td align="center">
+                <div ng-switch on="training.isTrained">
+                <div ng-switch-when="true">
+                    <a href="#/training/trainNetwork/{{training._id}}" data-toggle = "tooltip" data-placement = "top"  title = "Test/Execute Model">
+                        <i class="glyphicon glyphicon-play" ></i>
+                    </a>            
+                </div>
+                <div ng-switch-default>
+                        <i class="glyphicon glyphicon-ban-circle" ></i>
+                </div>
+                </div>
+    </td>
+  </tr>
+</table>            
+            
+<p>
+    <a href="#/training">Add a Training Set</a>
+</p>
+            
