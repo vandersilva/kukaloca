@@ -1,0 +1,67 @@
+
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd)	{
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+
+
+<h1>Training the Network</h1>
+<p>
+    Confirm the parameters and start training the NN:
+</p>
+
+
+<table>
+    <tr>
+        <td> Title </td>
+        <td> {{vm.training.title}} </td>
+    </tr>
+    <tr>
+        <td> Description </td>
+        <td> {{vm.training.description}}</td>
+    </tr>
+
+
+    <tr>
+        <td> Algo Type </td>
+        <td> {{vm.training.algorithmTyp}}</td>
+    </tr>
+    <tr>
+        <td> Number of Layers </td>
+        <td> {{vm.training.numberOfLayers}}</td>
+    </tr>
+    <tr>
+        <td> Activation Function</td>
+        <td> {{vm.training.activationFunction}}</td>
+    </tr>
+    <tr>
+        <td> Input Neurons</td>
+        <td> {{vm.training.inputNeurons}}</td>
+    </tr>
+    <tr>
+        <td> Output Neurons </td>
+        <td> {{vm.training.outputNeurons}}</td>
+    </tr>
+    <tr>
+        <td> Data Set</td>
+        <td> {{vm.training.dataSet}}</td>
+    </tr>
+</table>            
+         
+<br/>
+
+
+<div>
+    <input type="button" value="Train Network" class="btn btn-primary" ng-click="vm.trainNetwork();" 
+           ng-confirm-click="Confirm training this network?  THIS IS A TEST, LOGIC FOR TRAINING COMES NEXT" data-toggle = "tooltip" data-placement = "top"  title = "Training Network"/>
+    <a class="btn btn-default" href="#/">Go Back / Cancel</a>
+</div>

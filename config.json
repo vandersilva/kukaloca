@@ -1,0 +1,7 @@
+{
+    "connectionString": "mongodb://localhost:27017/kukadb",
+    "apiUrl": "http://localhost:3000/api",
+    "secret": "KUKA SECRET SECRET WHICH IS NOT SO SECRET",
+    "debugLevel": "development",
+    "logsFolder": "logs"
+}
