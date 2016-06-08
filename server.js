@@ -45,7 +45,7 @@ app.get(['/kuka', '/kukaloca', '/nodejs', '/testapp', '/ec2', '/aws'], function 
 // favicon in /home
 
 logger.debug("Favicon dir: %s", __dirname);
-app.use(favicon(path.join(__dirname, '\\app\\home', 'favicon.ico'))); 
+app.use(favicon(path.join(__dirname, '/app/home', 'favicon.ico'))); 
 
 
 /**
