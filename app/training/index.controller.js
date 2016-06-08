@@ -73,7 +73,7 @@
                 TrainingService.SaveNewTraining(vm.training)
                     .then(function () {
                         //FlashService.Success('Training created');
-                        $window.location = '/';
+                        $window.location = '#/';
                     })
                     .catch(function (error) {
                         FlashService.Error(error);
@@ -87,7 +87,7 @@
                 console.log("Inside training index.controller updateTraining for ID: %s", vm.trainingID);
                 TrainingService.UpdateTraining(vm.trainingID, vm.training)
                         .then(function() {
-                        $window.location = '/';
+                        $window.location = '#/';
                     })
                     .catch(function (error) {
                         console.log("Error updating!");

@@ -56,7 +56,8 @@
             
             TrainingService.SetIsTrained(vm.trainingID, true)
                     .then(function() {
-                    $window.location = '/';
+                    $window.location = '#/'; 
+                    $window.location.reload();
                 })
                 .catch(function (error) {
                     console.log("Error updating!");
