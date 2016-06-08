@@ -78,7 +78,8 @@
         function deleteTraining(training_id) {
             TrainingService.DeleteTraining(training_id)
                     .then(function() {
-                    $window.location = '/';
+                    $window.location = '#/';
+                    $window.location.reload();
                 })
                 .catch(function (error) {
                     console.log("Error deleting!");
