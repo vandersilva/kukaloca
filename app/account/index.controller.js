@@ -44,7 +44,9 @@
             UserService.Delete(vm.user._id)
                 .then(function () {
                     // log user out
-                    $window.location = '/login';
+                    //$window.location = '/login';
+                    $window.location = '/login?returnUrl=%2Fkukaloca%2Fapp%2F';
+                    
                 })
                 .catch(function (error) {
                     FlashService.Error(error);
