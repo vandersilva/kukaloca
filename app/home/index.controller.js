@@ -64,7 +64,7 @@
                 getListOfTrainings();
                 
                 function getListOfTrainings() {
-                    console.log("About to call TraininService.GetTrainings()");
+                    if (console) console.log("About to call TraininService.GetTrainings()");
                     TrainingService.GetTrainings().then(function(userTrainings) {
                         vm.userTrainings = userTrainings;
                         });
@@ -82,7 +82,7 @@
                     $window.location.reload();
                 })
                 .catch(function (error) {
-                    console.log("Error deleting!");
+                    if (console) console.log("Error deleting!");
                 });
         }
     

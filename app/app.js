@@ -13,10 +13,19 @@
         .config(config)
         .run(run);
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($httpProvider, $stateProvider, $urlRouterProvider) {
+        // Disables heavy AJAX caching for GET method on IE, causing app state issues
+        $httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
+        $httpProvider.defaults.cache = false;
+        if (!$httpProvider.defaults.headers.get) {
+            $httpProvider.defaults.headers.get = {};
+        }
+        $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
+
+        
         // default route
         $urlRouterProvider.otherwise("/");
-        
+
         $stateProvider
             .state('home', {
                 url: '/',
