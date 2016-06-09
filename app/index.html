@@ -14,7 +14,7 @@
             <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
             <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
             <li ng-class="{active: activeTab === 'training'}"><a ui-sref="training">Training</a></li>
-            <li><a href="/login" target="_self">Logout</a></li>
+            <li><a href="/login?returnUrl=%2Fkukaloca%2Fapp%2F" target="_self">Logout</a></li>
         </ul>
         <div class="flash-message" ng-if="flash">
             <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
