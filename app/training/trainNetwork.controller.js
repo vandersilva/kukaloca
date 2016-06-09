@@ -29,7 +29,7 @@
         function initController() {
             // get current user
             UserService.GetCurrent().then(function (user) {
-                console.log("Loading training set controller. _id = %s", $stateParams._id );
+                if (console) console.log("Loading training set controller. _id = %s", $stateParams._id );
                 vm.user = user;
                 vm.trainingID = $stateParams._id;
                 
@@ -41,7 +41,7 @@
                         vm.training = training;
                     })
                     .catch(function (error) {
-                        console.log("Error getting training set!");
+                        if (console) console.log("Error getting training set!");
                     });
 
             });
@@ -52,7 +52,7 @@
         * saveTraining is called for performing saving of new OR updated training set
         */
         function trainNetwork() {
-            console.log("Inside training trainNetwork.controller trainNetwork");
+            if (console) console.log("Inside training trainNetwork.controller trainNetwork");
             
             TrainingService.SetIsTrained(vm.trainingID, true)
                     .then(function() {
@@ -60,7 +60,7 @@
                     $window.location.reload();
                 })
                 .catch(function (error) {
-                    console.log("Error updating!");
+                    if (console) console.log("Error updating!");
                 });
     
         }

@@ -30,7 +30,7 @@
         function initController() {
             // get current user
             UserService.GetCurrent().then(function (user) {
-                console.log("Loading training set controller. _id = %s", $stateParams._id );
+                if (console) console.log("Loading training set controller. _id = %s", $stateParams._id );
                 vm.user = user;
                 vm.trainingID = $stateParams._id;
                 
@@ -46,7 +46,7 @@
                         vm.training = training;
                     })
                     .catch(function (error) {
-                        console.log("Error getting training set!");
+                        if (console) console.log("Error getting training set!");
                     });
 
             });
@@ -57,7 +57,7 @@
         * saveTraining is called for performing saving of new OR updated training set
         */
         function saveTraining() {
-            console.log("Inside training index.controller saveTraining");
+            if (console) console.log("Inside training index.controller saveTraining");
             
             if (vm.trainingID && vm.trainingID !== '') {
                 updateTraining();
@@ -69,7 +69,7 @@
             * createNewTraining is called for performing saving of new training set
             */
             function createNewTraining() {
-                console.log("Inside training index.controller createNewTraining");
+                if (console) console.log("Inside training index.controller createNewTraining");
                 TrainingService.SaveNewTraining(vm.training)
                     .then(function () {
                         //FlashService.Success('Training created');
@@ -84,13 +84,13 @@
             * updateTraining is called for performing update of a selected training set
             */
             function updateTraining() {
-                console.log("Inside training index.controller updateTraining for ID: %s", vm.trainingID);
+                if (console) console.log("Inside training index.controller updateTraining for ID: %s", vm.trainingID);
                 TrainingService.UpdateTraining(vm.trainingID, vm.training)
                         .then(function() {
                         $window.location = '#/';
                     })
                     .catch(function (error) {
-                        console.log("Error updating!");
+                        if (console) console.log("Error updating!");
                     });
             }
     

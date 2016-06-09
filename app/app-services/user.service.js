@@ -26,7 +26,7 @@
         return service;
 
         function GetCurrent() {
-            console.log("Inside \\app\\app-services\\user.service.js.GetCurrent()");
+            if (console) console.log("Inside \\app\\app-services\\user.service.js.GetCurrent()");
             return $http.get('/api/users/current').then(handleSuccess, handleError);
         }
 
@@ -43,12 +43,12 @@
         }
 
         function Create(user) {
-            console.log("Inside \\app\\app-services\\user.service.js.Create()");
+            if (console) console.log("Inside \\app\\app-services\\user.service.js.Create()");
             return $http.post('/api/users', user).then(handleSuccess, handleError);
         }
 
         function Update(user) {
-            console.log("Inside \\app\\app-services\\user.service.js.Update()");
+            if (console) console.log("Inside \\app\\app-services\\user.service.js.Update()");
             return $http.put('/api/users/' + user._id, user).then(handleSuccess, handleError);
         }
 
