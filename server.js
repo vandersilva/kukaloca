@@ -25,7 +25,7 @@ app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/user
 // routes
 app.use('/login', require('./controllers/login.controller'));
 app.use('/register', require('./controllers/register.controller'));
-app.use('/kukaloca/app', require('./controllers/app.controller'));
+app.use('/' + config.urlPath + '/app', require('./controllers/app.controller'));
 app.use('/api/users', require('./controllers/api/users.controller'));
 app.use('/api/trainings', require('./controllers/api/trainings.controller'));
 
@@ -37,8 +37,8 @@ app.get('/', function (req, res) {
 
 // make diff aliases the default route
 //app.get(['/kuka', '/kukaloca', /\/lmn|\/pqr/], function (req, res) {
-app.get(['/kuka', '/kukaloca', '/nodejs', '/testapp', '/ec2', '/aws'], function (req, res) {
-    return res.redirect('/kukaloca/app');
+app.get(['/kuka', '/' + config.urlPath, '/nodejs', '/testapp', '/ec2', '/aws'], function (req, res) {
+    return res.redirect('/' + config.urlPath + '/app');
 });
 
 

@@ -1,10 +1,7 @@
-<div ng-if="!vm.trainingID">
-    <h1 id="pageTitle">Add new Training Set</h1>
-</div>
-<div ng-if="vm.trainingID">
-    <h1 id="pageTitle">Update Training Set definition</h1>
-</div>
-
+<h1>
+<div ng-show="vm.trainingID"  ng-cloak> Update Training Set definition</div>
+<div ng-show="!vm.trainingID" ng-cloak> Add new Training Set</div>
+</h1>
 
 
 <div class="form-container">
