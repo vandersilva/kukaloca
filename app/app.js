@@ -52,7 +52,7 @@
                 controller: 'Training.TrainNetworkController',
                 controllerAs: 'vm',
                 data: { activeTab: 'training' }
-            });
+            }); 
     }
 
     function run($http, $rootScope, $window) {

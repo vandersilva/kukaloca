@@ -29,7 +29,8 @@ router.post('/', function (req, res) {
 
         // return to login page with success message
         req.session.success = 'Registration successful';
-        return res.redirect('/login?returnUrl=%2Fkukaloca%2Fapp%2F');
+        var loginURL = '/login?returnUrl=%2F' + config.urlPath + '%2Fapp%2F';
+        return res.redirect(loginURL);
 
     });
 });
