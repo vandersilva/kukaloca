@@ -14,7 +14,7 @@
             <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
             <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
             <li ng-class="{active: activeTab === 'training'}"><a ui-sref="training">Training</a></li>
-            <li><a href="/login?returnUrl=%2Fkukaloca%2Fapp%2F" target="_self">Logout</a></li>
+            <li><a href="/login?returnUrl=%2Fkukaloca%2Fapp%2F" target="_self">Logout</a></li> 
         </ul>
         <div class="flash-message" ng-if="flash">
             <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
@@ -29,7 +29,8 @@
 
     <!-- external scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
     
