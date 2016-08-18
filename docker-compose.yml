@@ -1,0 +1,15 @@
+app:
+  build: .
+  links:
+   - db
+  ports:
+   - "81:3000"
+  environment:
+   - NODE_ENV=production
+
+db:
+  image: mongo:latest
+  ports:
+   - "27017:27017"
+
+
